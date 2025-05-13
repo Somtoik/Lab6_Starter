@@ -26,6 +26,15 @@
 
 <!-- Styles -->
 <style>
+  :host {
+    --card-bg: white;
+    --card-border: rgb(223, 225, 229);
+    --title-color: black;
+    --org-color: #70757A;
+    --text-color: #333;
+    --link-hover: underline;
+  }
+
   * {
     font-family: sans-serif;
     margin: 0;
@@ -37,13 +46,14 @@
   }
 
   a:hover {
-    text-decoration: underline;
+    text-decoration: var(--link-hover);
   }
 
   article {
     align-items: center;
-    border: 1px solid rgb(223, 225, 229);
+    border: 1px solid var(--card-border);
     border-radius: 8px;
+    background-color: var(--card-bg);
     display: grid;
     grid-template-rows: 118px 56px 14px 18px 15px 36px;
     height: auto;
@@ -58,14 +68,14 @@
     display: flex;
   }
 
-  div.rating>img {
+  div.rating > img {
     height: auto;
     display: inline-block;
     object-fit: scale-down;
     width: 78px;
   }
 
-  article>img {
+  article > img {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     height: 118px;
@@ -82,7 +92,7 @@
   }
 
   p.organization {
-    color: black !important;
+    color: var(--org-color) !important;
   }
 
   p.title {
@@ -91,6 +101,8 @@
     height: 36px;
     line-height: 18px;
     overflow: hidden;
+    color: var(--title-color);
+    line-clamp:2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
@@ -98,7 +110,7 @@
   p:not(.title),
   span,
   time {
-    color: #70757A;
+    color: var(--org-color);
     font-size: 12px;
   }
 </style>
